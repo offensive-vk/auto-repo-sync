@@ -1,6 +1,6 @@
 # Auto Repo Sync
 
-Git Repo Sync enables you to synchronize code to other code management platforms, such as GitLab, Gite, Bitbucket etc.
+Git Repo Sync enables you to synchronize code to other code management platforms, such as GitLab, Github, Bitbucket etc.
 
 ## Example
 
@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-        
+
     - uses: offensive-vk/auto-repo-sync@v5
       with:
         # Such as https://github.com/<user>/<repo>.git
