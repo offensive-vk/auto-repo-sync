@@ -15,6 +15,7 @@ inputs:
   target-token:
     description: 'Target Token'
     required: true
+
 runs:
   using: "composite"
   steps:
