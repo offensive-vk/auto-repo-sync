@@ -19,7 +19,8 @@ inputs:
 runs:
   using: "docker"
   image: "docker://ghcr.io/offensive-vk/auto-repo-sync:latest"
-  args:
-    - ${{ inputs.target-url }}
-    - ${{ inputs.target-username }}
-    - ${{ inputs.target-token }}
+  env:
+      INPUT_TARGET_URL: ${{ inputs.target-url }}
+      INPUT_TARGET_USERNAME: ${{ inputs.target-username }}
+      INPUT_TARGET_TOKEN: ${{ inputs.target-token }}
+      GITHUB_EVENT_REF: ${{ github.event.ref }}
