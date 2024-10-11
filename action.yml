@@ -17,7 +17,8 @@ inputs:
     required: true
 
 runs:
-  using: "composite"
+  using: "docker"
+  image: "docker://ghcr.io/offensive-vk/auto-repo-sync:latest"
   steps:
     - run: chmod 755 ./entrypoint.sh; ${{ github.action_path }}/entrypoint.sh
       shell: bash
