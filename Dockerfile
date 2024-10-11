@@ -6,7 +6,7 @@ COPY --chmod=755 *.sh /
 
 RUN chmod +x *.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["sh","/entrypoint.sh"]
 
 LABEL \
     "name"="Auto Repo Sync" \
