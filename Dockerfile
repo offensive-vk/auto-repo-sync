@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y git
 
 COPY --chmod=755 *.sh /
 
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 LABEL \
     "name"="Auto Repo Sync" \
