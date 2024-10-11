@@ -23,4 +23,3 @@ runs:
       INPUT_TARGET_URL: ${{ inputs.target-url }}
       INPUT_TARGET_USERNAME: ${{ inputs.target-username }}
       INPUT_TARGET_TOKEN: ${{ inputs.target-token }}
-      GITHUB_EVENT_REF: ${{ github.event.ref }}
