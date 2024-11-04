@@ -17,8 +17,8 @@ inputs:
     required: true
 
 runs:
-  using: "docker"
-  image: './Dockerfile'
+  using: "composite"
+  shell: bash
   # image: "docker://ghcr.io/offensive-vk/auto-repo-sync:latest"
   env:
       INPUT_TARGET_URL: ${{ inputs.target-url }}
