@@ -3,7 +3,6 @@
 #########################################
 
 git remote add target https://${INPUT_TARGET_USERNAME}:${INPUT_TARGET_TOKEN}@${INPUT_TARGET_URL#*://}
-git config --global --add safe.directory /github/workspace
 
 case "${GITHUB_EVENT_NAME}" in
     push)
@@ -14,7 +13,7 @@ case "${GITHUB_EVENT_NAME}" in
         git push -d target ${GITHUB_EVENT_REF}
         ;;
     *)
-        break
+        git status
         ;;
 esac
 
