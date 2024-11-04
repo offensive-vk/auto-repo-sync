@@ -1,5 +1,5 @@
 name: 'Auto Repo Sync'
-description: 'Auto Repo Sync enables you to synchronize code to other code management platforms, such as GitLab, Bitbucket, etc.'
+description: 'This Action enables you to synchronize code to other code management platforms, such as GitLab, Bitbucket, etc.'
 
 branding:
   icon: 'upload-cloud'
