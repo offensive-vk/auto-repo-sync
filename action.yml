@@ -25,4 +25,4 @@ runs:
         INPUT_TARGET_URL: "${{ inputs.target-url }}"
         INPUT_TARGET_USERNAME: "${{ inputs.target-username }}"
         INPUT_TARGET_TOKEN: "${{ inputs.target-token }}"
-      run: chmod +x ./entrypoint.sh; ./entrypoint.sh
+      run: chmod 755 entrypoint.sh; ./entrypoint.sh
