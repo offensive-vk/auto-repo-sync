@@ -1,9 +1,10 @@
+#!/bin/bash
 ########################################
 ## Licensed Under MIT. 2024 - Present ##
 ########################################
-#!/bin/bash
 set -e
 set -o pipefail
+
 echo ":: Executing Script ::"
 
 if [ -z "$INPUT_TARGET_USERNAME" ] || [ -z "$INPUT_TARGET_TOKEN" ] || [ -z "$INPUT_TARGET_URL" ]; then
@@ -19,6 +20,7 @@ else
     git remote add target "$TARGET_URL"
 fi
 
+# Handle events
 case "${GITHUB_EVENT_NAME}" in
     push)
         echo "Handling push event..."
@@ -38,4 +40,4 @@ case "${GITHUB_EVENT_NAME}" in
         ;;
 esac
 
-echo "Repository sync completed successfully."
+echo ":: Repository sync completed successfully. ::"
