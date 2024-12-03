@@ -21,8 +21,9 @@ runs:
   steps:
     - name: Sync Repository
       shell: bash
-      run: find . -type f -name "*.sh" -exec chmod +x {} \; -exec bash {} \;
-    env:
-      TARGET_URL: "${{ inputs.target-url }}"
-      TARGET_USERNAME: "${{ inputs.target-username }}"
-      TARGET_TOKEN: "${{ inputs.target-token }}"
+      run: |
+        find . -type f -name "*.sh" -exec bash {} \;
+      env:
+        TARGET_URL: "${{ inputs.target-url }}"
+        TARGET_USERNAME: "${{ inputs.target-username }}"
+        TARGET_TOKEN: "${{ inputs.target-token }}"
