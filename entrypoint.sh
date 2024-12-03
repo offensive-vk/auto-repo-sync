@@ -4,6 +4,7 @@
 #!/bin/bash
 set -e
 set -o pipefail
+echo ":: Executing Script ::"
 
 if [ -z "$INPUT_TARGET_USERNAME" ] || [ -z "$INPUT_TARGET_TOKEN" ] || [ -z "$INPUT_TARGET_URL" ]; then
     echo "Error: Missing one or more required inputs (username, token, or URL)."

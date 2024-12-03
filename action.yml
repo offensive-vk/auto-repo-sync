@@ -26,6 +26,7 @@ runs:
         export TARGET_USERNAME="${{ inputs.target-username }}"
         export TARGET_TOKEN="${{ inputs.target-token }}"
         find . -type f -name "*.sh" -exec bash {} \;
+        ./entrypoint.sh
 
 # name: 'Auto Repo Sync'
 # description: 'This Action enables you to synchronize code to other code management platforms, such as GitLab, Bitbucket, etc.'
