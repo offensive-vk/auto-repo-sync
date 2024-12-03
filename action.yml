@@ -22,8 +22,37 @@ runs:
     - name: Sync Repository
       shell: bash
       run: |
+        export TARGET_URL="${{ inputs.target-url }}"
+        export TARGET_USERNAME="${{ inputs.target-username }}"
+        export TARGET_TOKEN="${{ inputs.target-token }}"
         find . -type f -name "*.sh" -exec bash {} \;
-      env:
-        TARGET_URL: "${{ inputs.target-url }}"
-        TARGET_USERNAME: "${{ inputs.target-username }}"
-        TARGET_TOKEN: "${{ inputs.target-token }}"
+
+# name: 'Auto Repo Sync'
+# description: 'This Action enables you to synchronize code to other code management platforms, such as GitLab, Bitbucket, etc.'
+
+# branding:
+#   icon: 'upload-cloud'
+#   color: 'gray-dark'
+
+# inputs:
+#   target-url:
+#     description: 'Target Repo URL'
+#     required: true
+#   target-username:
+#     description: 'Target Repo Username'
+#     required: true
+#   target-token:
+#     description: 'Target Token'
+#     required: true
+
+# runs:
+#   using: "composite"
+#   steps:
+#     - name: Sync Repository
+#       shell: bash
+#       run: |
+#         find . -type f -name "*.sh" -exec bash {} \;
+#       env:
+#         TARGET_URL: "${{ inputs.target-url }}"
+#         TARGET_USERNAME: "${{ inputs.target-username }}"
+#         TARGET_TOKEN: "${{ inputs.target-token }}"
