@@ -37,7 +37,7 @@ case "${GITHUB_EVENT_NAME}" in
     *)
         echo "Handling other event: ${GITHUB_EVENT_NAME}."
         git status
-        git push -d target "$GITHUB_EVENT_REF"
+        git push target "$GITHUB_EVENT_REF"
         ;;
 esac
 
