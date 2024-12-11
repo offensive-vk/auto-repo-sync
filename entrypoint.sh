@@ -37,4 +37,4 @@ case "${GITHUB_EVENT_NAME}" in
         ;;
 esac
 
-echo ":: Repository sync completed successfully. ::
+echo ":: Repository sync completed successfully. ::"
