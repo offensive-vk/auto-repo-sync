@@ -35,8 +35,9 @@ case "${GITHUB_EVENT_NAME}" in
         git push -d target "$GITHUB_EVENT_REF"
         ;;
     *)
-        echo "Unhandled event: ${GITHUB_EVENT_NAME}. Showing git status."
+        echo "Handling other event: ${GITHUB_EVENT_NAME}."
         git status
+        git push -d target "$GITHUB_EVENT_REF"
         ;;
 esac
 
