@@ -21,7 +21,7 @@ runs:
   steps:
     - name: Run Repository Sync Script
       shell: bash
-      run: ./entrypoint.sh
+      run: chmod +x entrypoint.sh ; ./entrypoint.sh
       env:
         INPUT_TARGET_URL: ${{ inputs.target-url }}
         INPUT_TARGET_USERNAME: ${{ inputs.target-username }}
