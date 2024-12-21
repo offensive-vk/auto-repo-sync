@@ -27,14 +27,26 @@ fi
 log "Fetching changes from origin..."
 git fetch origin --prune || { log "Error: Failed to fetch from origin."; exit 1; }
 
+log "Fetching changes from target to avoid conflicts..."
+git fetch target --prune || { log "Error: Failed to fetch from target."; exit 1; }
+
 case "${GITHUB_EVENT_NAME}" in
     push)
         log ":: Detected push event. Syncing all branches and tags..."
-        if git push target --all && git push target --tags; then
-            log "Successfully pushed all branches and tags to 'target'."
+        log "Attempting to push all branches..."
+        if git push target --all; then
+            log "Successfully pushed all branches to 'target'."
         else
-            log "Error: Failed to push changes to 'target'."
-            exit 1
+            log "Push failed. Attempting to resolve conflicts by forcing the push..."
+            git push target --all --force || { log "Error: Force push failed."; exit 1; }
+        fi
+
+        log "Attempting to push all tags..."
+        if git push target --tags; then
+            log "Successfully pushed all tags to 'target'."
+        else
+            log "Push failed. Attempting to resolve conflicts by forcing the push..."
+            git push target --tags --force || { log "Error: Force push of tags failed."; exit 1; }
         fi
         ;;
     delete)
@@ -42,11 +54,20 @@ case "${GITHUB_EVENT_NAME}" in
         ;;
     *)
         log ":: Detected event: ${GITHUB_EVENT_NAME}. Syncing changes..."
-        if git push target --all && git push target --tags; then
-            log "Successfully pushed all branches and tags to 'target'."
+        log "Attempting to push all branches..."
+        if git push target --all; then
+            log "Successfully pushed all branches to 'target'."
         else
-            log "Error: Failed to push changes to 'target'."
-            exit 1
+            log "Push failed. Attempting to resolve conflicts by forcing the push..."
+            git push target --all --force || { log "Error: Force push failed."; exit 1; }
+        fi
+
+        log "Attempting to push all tags..."
+        if git push target --tags; then
+            log "Successfully pushed all tags to 'target'."
+        else
+            log "Push failed. Attempting to resolve conflicts by forcing the push..."
+            git push target --tags --force || { log "Error: Force push of tags failed."; exit 1; }
         fi
         ;;
 esac
