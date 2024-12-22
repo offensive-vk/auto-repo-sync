@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -eux pipefail
 
 log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
