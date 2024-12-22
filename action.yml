@@ -19,6 +19,10 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  env:
+    INPUT_TARGET_URL: ${{ inputs.target-url }}
+    INPUT_TARGET_USERNAME: ${{ inputs.target-username }}
+    INPUT_TARGET_TOKEN: ${{ inputs.target-token }}
 # runs:
 #   using: "composite"
 #   steps:
