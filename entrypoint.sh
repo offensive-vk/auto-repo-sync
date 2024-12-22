@@ -15,6 +15,17 @@ fi
 
 TARGET_URL="https://${INPUT_TARGET_USERNAME}:${INPUT_TARGET_TOKEN}@${INPUT_TARGET_URL#*://}"
 
+if [ -z "$$INPUT_TARGET_USERNAME" ]; then
+  git config --global user.name "github-actions[bot]"
+  git config --global user.email "github-actions[bot]@users.noreply.github.com"
+else
+  git config --global user.name "$INPUT_TARGET_USERNAME"
+  git config --global user.email "$INPUT_TARGET_USERNAME@users.noreply.github.com"
+fi
+
+# Add safe directory config
+git config --global --add safe.directory /github/workspace
+
 # Ensure 'target' remote exists
 if git remote | grep -q "^target$"; then
     log "Remote 'target' already exists. Verifying URL..."
