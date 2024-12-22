@@ -1,0 +1,13 @@
+name: CI / Docker
+
+on:
+ push: 
+    branches: ['**']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Sync
+    steps:
+      - name: Build
+        run: docker buildx build . -t

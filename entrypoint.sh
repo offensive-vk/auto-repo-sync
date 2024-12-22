@@ -5,7 +5,7 @@ log() {
     echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1"
 }
 
-log ":: Starting Repository Sync Script ::"
+log ":: Starting Repository Sync ::"
 
 # Check required inputs
 if [[ -z "$INPUT_TARGET_USERNAME" || -z "$INPUT_TARGET_TOKEN" || -z "$INPUT_TARGET_URL" ]]; then
